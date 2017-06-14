@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="6"
+    name="Basic Activity with Android Architecture Components"
+    minApi="9"
+    minBuildApi="14"
+    description="Creates a new basic activity with an app bar.">
+
+    <category value="Activity"/>
+    <formfactor value="Mobile"/>
+
+    <parameter
+        id="instantAppActivityHost"
+        name="Instant App URL Host"
+        type="string"
+        suggest="${companyDomain}"
+        default="instantapp.example.com"
+        visibility="isInstantApp!false"
+        help="The domain to use in the Instant App route for this activity"/>
+
+    <parameter
+        id="instantAppActivityRouteType"
+        name="Instant App URL Route Type"
+        type="enum"
+        default="pathPattern"
+        visibility="isInstantApp!false"
+        help="The type of route to use in the Instant App route for this activity" >
+        <option id="path">Path</option>
+        <option id="pathPrefix">Path Prefix</option>
+        <option id="pathPattern">Path Pattern</option>
+    </parameter>
+
+    <parameter
+        id="instantAppActivityRoute"
+        name="Instant App URL Route"
+        type="string"
+        default="/.*"
+        visibility="isInstantApp!false"
+        help="The route to use in the Instant App route for this activity"/>
+
+    <parameter
+        id="baseName"
+        name="Base Name"
+        type="string"
+        constraints="unique|nonempty"
+        default="Main"
+        help="The base name of the classes to create"/>
+
+    <parameter
+        id="activityClass"
+        name="Activity Name"
+        type="string"
+        constraints="unique|nonempty"
+        suggest="${baseName}Activity"
+        help="The name of the activity class to create"/>
+
+    <parameter
+        id="viewModelClass"
+        name="ViewModel Name"
+        type="string"
+        constraints="unique|nonempty"
+        suggest="${baseName}ViewModel"
+        help="The name of the viewModel class to create"/>
+
+    <parameter
+        id="repositoryClass"
+        name="Repository Name"
+        type="string"
+        constraints="unique|nonempty"
+        suggest="${baseName}Repository"
+        help="The name of the repository class to create"/>
+
+    <parameter
+        id="activityTitle"
+        name="Title"
+        type="string"
+        constraints="nonempty"
+        default="MainActivity"
+        suggest="${activityClass}"
+        help="The name of the activity. For launcher activities, the application title."/>
+
+    <parameter
+        id="layoutName"
+        name="Layout Name"
+        type="string"
+        constraints="layout|unique|nonempty"
+        suggest="${activityToLayout(activityClass)}"
+        default="activity_main"
+        help="The name of the layout to create for the activity"/>
+
+    <parameter
+        id="isLauncher"
+        name="Launcher Activity"
+        type="boolean"
+        default="false"
+        help="If true, this activity will have a CATEGORY_LAUNCHER intent filter, making it visible in the launcher"/>
+
+    <parameter
+        id="contentLayoutName"
+        name="Content Layout Name"
+        type="string"
+        constraints="layout|unique"
+        suggest="${activityToLayout(activityClass, 'content')}"
+        default="content_main"
+        visibility="false"
+        help="The name of the App Bar layout to create for the activity"/>
+
+    <parameter
+        id="parentActivityClass"
+        name="Hierarchical Parent"
+        type="string"
+        constraints="activity|exists|empty"
+        default=""
+        visibility="false"
+        help="The hierarchical parent activity, used to provide a default implementation for the 'Up' button"/>
+
+    <parameter
+        id="packageName"
+        name="Package name"
+        type="string"
+        constraints="package"
+        default="com.mycompany.myapp"/>
+
+    <globals file="globals.xml.ftl"/>
+    <execute file="recipe.xml.ftl"/>
+
+</template>
