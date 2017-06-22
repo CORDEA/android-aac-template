@@ -62,3 +62,11 @@ Copy BasicActivityWithAAC to templates directory. Like this in MacOS.
 ```console
 $ cp -r BasicActivityWithAAC /Applications/Android\ Studio\ 3.0\ Preview.app/Contents/plugins/android/lib/templates/activities/
 ```
+
+![Step1](images/1.png)
+
+![Step2](images/2.png)
+
+![Step3](images/3.png)
+
+![Step4](images/4.png)
