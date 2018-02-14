@@ -44,7 +44,7 @@ class ${activityClass} : ${superClass}(), LifecycleRegistryOwner {
     private fun subscribe() {
         viewModel.getText().observe(this, Observer<String> {
             it?.let {
-                binding.content.textView.text = it
+                binding.content?.textView?.text = it
             }
         })
     }
