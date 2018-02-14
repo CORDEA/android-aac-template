@@ -60,7 +60,7 @@ Android Studio Template using Kotlin + Android Architecture Components + Data Bi
 Copy BasicActivityWithAAC to templates directory. Like this in MacOS.
 
 ```console
-$ cp -r BasicActivityWithAAC /Applications/Android\ Studio\ 3.0\ Preview.app/Contents/plugins/android/lib/templates/activities/
+$ cp -r BasicActivityWithAAC /Applications/Android\ Studio.app/Contents/plugins/android/lib/templates/activities/
 ```
 
 ![Step1](images/1.png)
