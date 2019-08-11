@@ -26,9 +26,7 @@ class ${activityClass} : ${superClass}(), LifecycleRegistryOwner {
 
     private val lifecycle = LifecycleRegistry(this)
 
-    override fun getLifecycle(): LifecycleRegistry {
-        return lifecycle
-    }
+    override fun getLifecycle(): LifecycleRegistry = lifecycle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)

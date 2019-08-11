@@ -13,15 +13,8 @@ import ${packageName}.App
         ActivityModule::class
 ))
 interface AppComponent : AndroidInjector<App> {
-
-    @Component.Builder
-    interface Builder {
-
-        @BindsInstance
-        fun application(application: Application): Builder
-
-        fun build(): AppComponent
+    @Component.Factory
+    interface Factory {
+        fun create(@BindsInstance application: Application): AppComponent
     }
-
-    fun inject(application: Application)
 }
