@@ -2,11 +2,9 @@ package ${packageName}.di
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import ${packageName}.activities.${activityClass}
+import ${packageName}.activities.${activityClass}Module
 
-@Module
-abstract class ActivityModule {
-
-    @ContributesAndroidInjector
-    abstract fun contribute${activityClass}(): ${activityClass}
-}
+@Module(includes = [
+    ${activityClass}Module::class
+])
+interface ActivityModule

@@ -76,6 +76,9 @@
     <instantiate from="root/src/app_package/activities/MainActivity.kt.ftl"
                    to="${escapeXmlAttribute(srcOut)}/activities/${activityClass}.kt" />
 
+    <instantiate from="root/src/app_package/activities/MainActivityModule.kt.ftl"
+                 to="${escapeXmlAttribute(srcOut)}/activities/${activityClass}Module.kt" />
+
     <open file="${escapeXmlAttribute(srcOut)}/${activityClass}.kt" />
 
     <open file="${escapeXmlAttribute(resOut)}/layout/layout_${baseName?lower_case}.xml" />
