@@ -7,7 +7,9 @@ import android.view.View
 import ${packageName}.repositories.${repositoryClass}
 import javax.inject.Inject
 
-class ${viewModelClass} @Inject constructor(repository: ${repositoryClass}) : ViewModel() {
+class ${viewModelClass} @Inject constructor(
+    private val repository: ${repositoryClass}
+) : ViewModel() {
 
     private val text = MutableLiveData<String>()
 
@@ -15,7 +17,7 @@ class ${viewModelClass} @Inject constructor(repository: ${repositoryClass}) : Vi
         return text
     }
 
-    val onClick = View.OnClickListener {
+    fun onClick(view: View) {
         repository.inc()
         text.value = repository.countString
     }
