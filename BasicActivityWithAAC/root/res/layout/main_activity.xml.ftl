@@ -31,7 +31,7 @@
 
         <include
                 android:id="@+id/content"
-                layout="@layout/main_content"
+                layout="@layout/${baseName?lower_case}_content"
                 app:vm="@{vm}"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
