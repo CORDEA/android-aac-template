@@ -11,7 +11,7 @@ import ${packageName}.databinding.ActivityMainBinding
 import ${packageName}.viewmodels.MainViewModel
 import javax.inject.Inject
 
-class ${activityClass} : ${superClass}(), LifecycleRegistryOwner {
+class ${activityClass} : ${superClassFqcn}(), LifecycleRegistryOwner {
 
     @Inject
     lateinit var factory: ViewModelProvider.Factory
