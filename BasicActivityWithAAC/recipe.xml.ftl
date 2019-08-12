@@ -23,15 +23,9 @@
     <dependency mavenUrl="androidx.constraintlayout:constraintlayout:+"/>
     <dependency mavenUrl="com.google.android.material:material:+"/>
 
-    <dependency mavenUrl="org.jetbrains.kotlinx:kotlinx-coroutines-core:+"/>
-    <dependency mavenUrl="org.jetbrains.kotlinx:kotlinx-coroutines-android:+"/>
-
     <dependency mavenUrl="androidx.lifecycle:lifecycle-compiler:+" gradleConfiguration="kapt"/>
     <dependency mavenUrl="androidx.lifecycle:lifecycle-runtime:+"/>
     <dependency mavenUrl="androidx.lifecycle:lifecycle-extensions:+"/>
-
-    <dependency mavenUrl="androidx.room:room-compiler:+" gradleConfiguration="kapt"/>
-    <dependency mavenUrl="androidx.room:room-runtime:+"/>
 
     <dependency mavenUrl="com.google.dagger:dagger:+"/>
     <dependency mavenUrl="com.google.dagger:dagger-android:+"/>
