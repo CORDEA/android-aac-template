@@ -1,17 +1,17 @@
 <#import "root://activities/common/kotlin_macros.ftl" as kt>
 package ${packageName}.activities
 
-import android.arch.lifecycle.*
-import android.databinding.DataBindingUtil
+import androidx.lifecycle.*
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import dagger.android.AndroidInjection
 import ${packageName}.R
-import ${packageName}.databinding.ActivityMainBinding
-import ${packageName}.viewmodels.MainViewModel
+import ${packageName}.databinding.${activityClass}Binding
+import ${packageName}.viewmodels.${viewModelClass}
 import javax.inject.Inject
 
-class ${activityClass} : ${superClassFqcn}(), LifecycleRegistryOwner {
+class ${activityClass} : AppCompatActivity(), LifecycleRegistryOwner {
 
     @Inject
     lateinit var factory: ViewModelProvider.Factory
@@ -21,7 +21,7 @@ class ${activityClass} : ${superClassFqcn}(), LifecycleRegistryOwner {
     }
 
     private val binding by lazy {
-        DataBindingUtil.setContentView<Activity${baseName}Binding>(this, R.layout.activity_${baseName?lower_case})
+        DataBindingUtil.setContentView<${activityClass}Binding>(this, R.layout.${baseName?lower_case}_activity)
     }
 
     private val lifecycle = LifecycleRegistry(this)
@@ -42,7 +42,7 @@ class ${activityClass} : ${superClassFqcn}(), LifecycleRegistryOwner {
     private fun subscribe() {
         viewModel.getText().observe(this, Observer<String> {
             it?.let {
-                binding.content?.textView?.text = it
+                binding.content.textView.text = it
             }
         })
     }

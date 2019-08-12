@@ -7,15 +7,15 @@
 
         <variable
                 name="vm"
-                type="jp.cordea.myapplication.viewmodels.MainViewModel" />
+                type="${packageName}.viewmodels.${viewModelClass}" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:context="jp.cordea.myapplication.activities.MainActivity"
-            tools:showIn="@layout/activity_main">
+            tools:context="${packageName}.activities.${activityClass}"
+            tools:showIn="@layout/main_activity">
 
         <TextView
                 android:id="@+id/text_view"
@@ -24,7 +24,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

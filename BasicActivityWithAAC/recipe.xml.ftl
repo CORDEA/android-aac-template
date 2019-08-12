@@ -39,11 +39,11 @@
     <dependency mavenUrl="com.google.dagger:dagger-compiler:+" gradleConfiguration="kapt"/>
     <dependency mavenUrl="com.google.dagger:dagger-android-processor:+" gradleConfiguration="kapt"/>
 
-    <instantiate from="root/res/layout/activity_main.xml.ftl"
-                 to="${escapeXmlAttribute(resOut)}/layout/activity_${baseName?lower_case}.xml"/>
+    <instantiate from="root/res/layout/main_activity.xml.ftl"
+                 to="${escapeXmlAttribute(resOut)}/layout/${baseName?lower_case}_activity.xml"/>
 
-    <instantiate from="root/res/layout/content_main.xml.ftl"
-                 to="${escapeXmlAttribute(resOut)}/layout/content_${baseName?lower_case}.xml"/>
+    <instantiate from="root/res/layout/main_content.xml.ftl"
+                 to="${escapeXmlAttribute(resOut)}/layout/${baseName?lower_case}_content.xml"/>
 
     <copy from="root/res/drawable/ic_add_white_24dp.xml"
           to="${escapeXmlAttribute(resOut)}/drawable/ic_add_white_24dp.xml"/>
